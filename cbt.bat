@@ -123,7 +123,7 @@ REM < MAIN >
 CALL :set_debug %*
 IF NOT "%debug%"=="" SHIFT
 
-SET JAVA_OPTS_CBT=%debug% -Xmx1536m -Xss10M "-XX:MaxJavaStackTraceDepth=-1" -XX:+TieredCompilation "-XX:TieredStopAtLevel=1" -Xverify:none
+SET JAVA_OPTS_CBT=%debug% -Djna.nosys=true -Xmx1536m -Xss10M "-XX:MaxJavaStackTraceDepth=-1" -XX:+TieredCompilation "-XX:TieredStopAtLevel=1" -Xverify:none
 
 
 IF /I "%~1"=="kill" (
