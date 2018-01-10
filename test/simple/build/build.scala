@@ -57,11 +57,12 @@ class Build(val context: cbt.Context) extends BaseBuild{
   override def compile = {
     val dummyScalatexFile = projectDirectory / "src_generated" / "ScalatexCrash.scalatex"
     lib.write( dummyScalatexFile, "" )
+    val dummyScalatexFilePath = dummyScalatexFile.toString.replace("\\","\\\\") // windows escaping
     lib.write(
       projectDirectory / "src_generated" / "ScalatexCrash.scala",
       s"""object ScalatexCrash{
         import _root_.scalatags.Text.all._
-        val file = _root_.scalatex.twf("${dummyScalatexFile}")
+        val file = _root_.scalatex.twf("${dummyScalatexFilePath}")
       }"""
     )
     super.compile

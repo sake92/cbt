@@ -163,7 +163,7 @@ object Main{
       val debugToken2 = "\n"++lib.red("Deleting") ++ " " ++ (cbtHome ++("/test/"++path)).toPath.toAbsolutePath.toString++"\n"
       assertSuccess(res,debugToken)
       assert(res.out == "", "should be empty: " + res.out)
-      assert(res.err.contains(debugToken), debugToken ++ " missing from " ++ res.err.toString)
+      assert(res.err.contains(debugToken.trim), debugToken ++ " missing from " ++ res.err.toString)
       assert(
         !res.err.contains(debugToken2),
         "Tried to delete too much: " ++ debugToken2 ++ " found in " ++ res.err.toString
