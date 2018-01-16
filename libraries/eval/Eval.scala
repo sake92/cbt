@@ -337,8 +337,8 @@ class Eval(target: Option[File]) {
   lazy val impliedClassPath: List[String] = {
     def getClassPath(cl: ClassLoader, acc: List[List[String]] = List.empty): List[List[String]] = {
       val cp = cl match {
-        case urlClassLoader: URLClassLoader => urlClassLoader.getURLs.filter(_.getProtocol == "file").
-          map(u => new File(u.toURI).getPath).toList
+        case urlClassLoader: URLClassLoader => urlClassLoader.getURLs.filter(_.getProtocol == "file")
+          .map(_.getPath).toList
         case _ => Nil
       }
       cl.getParent match {

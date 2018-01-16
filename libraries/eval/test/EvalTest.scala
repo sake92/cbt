@@ -104,7 +104,7 @@ class EvalTest extends WordSpec {
       assert(res4 == 2)
       // and make sure it created a new file
       val targetFile4 = new File(targetFileName)
-      assert(!targetFile4.exists)
+      assert(targetFile4.exists)
     }
 
     "apply(InputStream)" in {

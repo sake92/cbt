@@ -5,7 +5,7 @@ class Build(context: cbt.Context) extends BasicBuild(context){
     super.dependencies
     ++
     Seq(
-      GitDependency("https://github.com/cvogt/cbt.git", "f11b8318b85f16843d8cfa0743f64c1576614ad6", Some("test/library-test"))
+      GitDependency("https://github.com/cvogt/cbt.git", "3fbf948b211c607aedd163db8fcd27587a09ff0d", Some("test/library-test"))
     )
   )
 }
